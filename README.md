@@ -1,8 +1,43 @@
-# Resume Builder
+# 🚀 Resume Builder
 
-A comprehensive, professional resume builder application built with Next.js 15, TypeScript, and modern web technologies. Create, edit, and export beautiful resumes in minutes.
+[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC)](https://tailwindcss.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748)](https://www.prisma.io/)
+[![SQLite](https://img.shields.io/badge/SQLite-Database-003B57)](https://www.sqlite.org/)
 
-## 🚀 Features
+A comprehensive, professional resume builder application built with Next.js 15, TypeScript, and modern web technologies. Create, edit, and export beautiful resumes in minutes with real-time preview and multiple templates.
+
+![Resume Builder Preview](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Resume+Builder+Preview)
+
+## ✨ Features
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ and npm
+- Git
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/bhavyasree1076/resume-builder.git
+cd resume-builder
+
+# Install dependencies
+npm install
+
+# Set up the database
+npm run db:push
+
+# Start the development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to start building resumes!
+
+## ✨ Features
 
 ### Core Functionality
 - **Interactive Resume Builder**: Easy-to-use form interface for creating professional resumes
@@ -51,33 +86,23 @@ A comprehensive, professional resume builder application built with Next.js 15, 
 - **Sonner**: Toast notifications
 - **Framer Motion**: Smooth animations
 
-## 📦 Installation
+## 📋 Demo
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd resume-builder
-   ```
+### Live Demo
+🚀 **[Try Resume Builder Live](https://resume-builder-demo.vercel.app)**
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### Screenshots
 
-3. **Set up the database**
-   ```bash
-   npm run db:push
-   ```
+#### Resume Builder Interface
+![Resume Builder Interface](https://via.placeholder.com/600x400/10B981/FFFFFF?text=Resume+Builder+Interface)
 
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
+#### Resume Preview
+![Resume Preview](https://via.placeholder.com/600x400/3B82F6/FFFFFF?text=Resume+Preview)
 
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+#### Template Selection
+![Template Selection](https://via.placeholder.com/600x400/8B5CF6/FFFFFF?text=Template+Selection)
 
-## 🎯 Usage
+## 📖 Usage
 
 ### Creating a Resume
 
@@ -128,7 +153,7 @@ A comprehensive, professional resume builder application built with Next.js 15, 
    - Switch to the "Preview" tab
    - Click "Export as PDF" to download your resume
 
-## 🏗️ Project Structure
+## 🏗️ Architecture
 
 ```
 src/
@@ -155,7 +180,7 @@ src/
     └── schema.prisma         # Database schema
 ```
 
-## 🔧 Development
+## 🛠️ Development
 
 ### Available Scripts
 
@@ -185,7 +210,7 @@ The application uses SQLite with the following main models:
 - `POST /api/users` - Create/get user
 - `GET /api/users?email=<email>` - Get user by email
 
-## 🎨 Customization
+## 🎨 Customization & Extension
 
 ### Adding New Templates
 
@@ -205,7 +230,7 @@ The application uses SQLite with the following main models:
 2. Update the form in `resume-builder.tsx`
 3. Add the section to the preview in `resume-preview.tsx`
 
-## 🚀 Deployment
+## 🚀 Deployment & Production
 
 ### Environment Variables
 
@@ -222,7 +247,7 @@ npm run build
 npm run start
 ```
 
-## 🤝 Contributing
+## 🤝 Contributing & Community
 
 1. Fork the repository
 2. Create a feature branch
@@ -230,11 +255,11 @@ npm run start
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
+## 📄 License & Legal
 
 This project is licensed under the MIT License.
 
-## 🙏 Acknowledgments
+## 🙏 Acknowledgments & Credits
 
 - Built with [Next.js](https://nextjs.org/)
 - UI components by [shadcn/ui](https://ui.shadcn.com/)
@@ -242,7 +267,7 @@ This project is licensed under the MIT License.
 - Icons by [Lucide](https://lucide.dev/)
 - Database by [Prisma](https://www.prisma.io/)
 
-## 📞 Support
+## 📞 Support & Contact
 
 For support, please open an issue in the GitHub repository or contact the development team.
 
