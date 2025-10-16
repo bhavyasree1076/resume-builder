@@ -3,11 +3,12 @@ import { db } from '@/lib/db'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const resume = await db.resume.findUnique({
-      where: { id: params.id }
+      where: { id }
     })
 
     if (!resume) {
@@ -23,14 +24,15 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const body = await request.json()
     const { userId, ...resumeData } = body
 
     const resume = await db.resume.update({
-      where: { id: params.id },
+      where: { id },
       data: {
         ...resumeData,
         experience: resumeData.experience || [],
@@ -51,11 +53,12 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     await db.resume.delete({
-      where: { id: params.id }
+      where: { id }
     })
 
     return NextResponse.json({ message: 'Resume deleted successfully' })
