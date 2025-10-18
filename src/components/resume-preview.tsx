@@ -355,6 +355,120 @@ export function ResumePreview({ resumeData }: ResumePreviewProps) {
             </div>
           </section>
         )}
+
+        {/* Skills */}
+        {resumeData.skills && resumeData.skills.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center border-b-2 border-gray-800 pb-2">
+              SKILLS
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {['Technical', 'Soft Skills', 'Languages', 'Tools'].map(category => {
+                const categorySkills = resumeData.skills.filter((skill: any) => skill.category === category)
+                if (categorySkills.length === 0) return null
+
+                return (
+                  <div key={category}>
+                    <h3 className="font-semibold text-gray-700 mb-2 text-center">{category}</h3>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {categorySkills.map((skill: any, index: number) => (
+                        <Badge key={index} variant="secondary" className="text-sm">
+                          {skill.name} ({skill.level})
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* Projects */}
+        {resumeData.projects && resumeData.projects.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center border-b-2 border-gray-800 pb-2">
+              PROJECTS
+            </h2>
+            <div className="space-y-4">
+              {resumeData.projects.map((project: any, index: number) => (
+                <div key={index} className="text-center">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {project.name}
+                  </h3>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      className="text-gray-600 hover:underline text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Project
+                    </a>
+                  )}
+                  {project.description && (
+                    <p className="text-gray-700 leading-relaxed mt-2">
+                      {project.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Certifications */}
+        {resumeData.certifications && resumeData.certifications.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center border-b-2 border-gray-800 pb-2">
+              CERTIFICATIONS
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {resumeData.certifications.map((cert: any, index: number) => (
+                <div key={index} className="border rounded-lg p-4 text-center">
+                  <h3 className="font-semibold text-gray-800">
+                    {cert.name}
+                  </h3>
+                  <p className="text-gray-600 font-medium">
+                    {cert.issuer}
+                  </p>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-600">
+                      {formatDate(cert.date)}
+                    </p>
+                    {cert.url && (
+                      <a
+                        href={cert.url}
+                        className="text-gray-600 hover:underline text-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Certificate
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Languages */}
+        {resumeData.languages && resumeData.languages.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center border-b-2 border-gray-800 pb-2">
+              LANGUAGES
+            </h2>
+            <div className="flex flex-wrap gap-4 justify-center">
+              {resumeData.languages.map((lang: any, index: number) => (
+                <div key={index} className="flex items-center gap-2">
+                  <span className="font-medium text-gray-800">{lang.name}</span>
+                  <Badge variant="outline">{lang.proficiency}</Badge>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   )
@@ -440,6 +554,30 @@ export function ResumePreview({ resumeData }: ResumePreviewProps) {
           </section>
         )}
 
+        {/* Education */}
+        {resumeData.education && resumeData.education.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
+              Education
+            </h2>
+            <div className="space-y-4">
+              {resumeData.education.map((edu: any, index: number) => (
+                <div key={index} className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {edu.degree} in {edu.field}
+                  </h3>
+                  <p className="text-purple-600 font-medium">
+                    {edu.institution}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    {formatDate(edu.startDate)} - {formatDate(edu.endDate)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Skills with creative badges */}
         {resumeData.skills && resumeData.skills.length > 0 && (
           <section className="mb-8">
@@ -450,7 +588,7 @@ export function ResumePreview({ resumeData }: ResumePreviewProps) {
               {['Technical', 'Soft Skills', 'Languages', 'Tools'].map(category => {
                 const categorySkills = resumeData.skills.filter((skill: any) => skill.category === category)
                 if (categorySkills.length === 0) return null
-                
+
                 return (
                   <div key={category}>
                     <h3 className="font-semibold text-gray-700 mb-2">{category}</h3>
@@ -464,6 +602,94 @@ export function ResumePreview({ resumeData }: ResumePreviewProps) {
                   </div>
                 )
               })}
+            </div>
+          </section>
+        )}
+
+        {/* Projects */}
+        {resumeData.projects && resumeData.projects.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
+              Projects
+            </h2>
+            <div className="space-y-4">
+              {resumeData.projects.map((project: any, index: number) => (
+                <div key={index} className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-600">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      {project.name}
+                    </h3>
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        className="text-purple-600 hover:underline text-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Project
+                      </a>
+                    )}
+                  </div>
+                  {project.description && (
+                    <p className="text-gray-700 leading-relaxed">
+                      {project.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Certifications */}
+        {resumeData.certifications && resumeData.certifications.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
+              Certifications
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {resumeData.certifications.map((cert: any, index: number) => (
+                <div key={index} className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
+                  <h3 className="font-semibold text-gray-800">
+                    {cert.name}
+                  </h3>
+                  <p className="text-purple-600 font-medium">
+                    {cert.issuer}
+                  </p>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-600">
+                      {formatDate(cert.date)}
+                    </p>
+                    {cert.url && (
+                      <a
+                        href={cert.url}
+                        className="text-purple-600 hover:underline text-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Certificate
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Languages */}
+        {resumeData.languages && resumeData.languages.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
+              Languages
+            </h2>
+            <div className="flex flex-wrap gap-4">
+              {resumeData.languages.map((lang: any, index: number) => (
+                <div key={index} className="flex items-center gap-2">
+                  <span className="font-medium text-gray-800">{lang.name}</span>
+                  <Badge className="bg-gradient-to-r from-purple-600 to-pink-600 text-white">{lang.proficiency}</Badge>
+                </div>
+              ))}
             </div>
           </section>
         )}
