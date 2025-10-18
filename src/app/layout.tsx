@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Resume Builder - Create Professional Resumes",
   description: "Build professional resumes in minutes with our easy-to-use resume builder. Multiple templates, PDF export, and more.",
-  keywords: ["resume builder", "CV builder", "professional resume", "job application", "career", "Next.js", "TypeScript"],
+  keywords: ["resume builder", "CV builder", "professional resume", "job application", "career", "TypeScript"],
   authors: [{ name: "Resume Builder Team" }],
   icons: {
     icon: "/favicon.ico",
