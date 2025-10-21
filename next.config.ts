@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   trailingSlash: true,
+
   images: {
     unoptimized: true,
   },
@@ -25,6 +26,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   serverExternalPackages: ['@prisma/client', 'prisma'],
+  experimental: {
+    serverComponentsExternalPackages: ['@prisma/client', 'prisma'],
+  },
 };
 
 export default nextConfig;

@@ -288,6 +288,32 @@ export function ResumePreview({ resumeData }: ResumePreviewProps) {
           {resumeData.phone && <p>{resumeData.phone}</p>}
           {resumeData.location && <p>{resumeData.location}</p>}
         </div>
+        <div className="flex flex-wrap justify-center gap-4 text-sm mt-2">
+          {resumeData.website && (
+            <div className="flex items-center gap-1">
+              <Globe className="w-4 h-4" />
+              <a href={resumeData.website} className="hover:underline">
+                {resumeData.website.replace(/^https?:\/\//, '')}
+              </a>
+            </div>
+          )}
+          {resumeData.linkedin && (
+            <div className="flex items-center gap-1">
+              <Linkedin className="w-4 h-4" />
+              <a href={resumeData.linkedin} className="hover:underline">
+                LinkedIn
+              </a>
+            </div>
+          )}
+          {resumeData.github && (
+            <div className="flex items-center gap-1">
+              <Github className="w-4 h-4" />
+              <a href={resumeData.github} className="hover:underline">
+                GitHub
+              </a>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="p-8">
@@ -498,6 +524,32 @@ export function ResumePreview({ resumeData }: ResumePreviewProps) {
               <div className="flex items-center gap-1">
                 <MapPin className="w-4 h-4" />
                 {resumeData.location}
+              </div>
+            )}
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 text-sm mt-2">
+            {resumeData.website && (
+              <div className="flex items-center gap-1">
+                <Globe className="w-4 h-4" />
+                <a href={resumeData.website} className="hover:underline">
+                  {resumeData.website.replace(/^https?:\/\//, '')}
+                </a>
+              </div>
+            )}
+            {resumeData.linkedin && (
+              <div className="flex items-center gap-1">
+                <Linkedin className="w-4 h-4" />
+                <a href={resumeData.linkedin} className="hover:underline">
+                  LinkedIn
+                </a>
+              </div>
+            )}
+            {resumeData.github && (
+              <div className="flex items-center gap-1">
+                <Github className="w-4 h-4" />
+                <a href={resumeData.github} className="hover:underline">
+                  GitHub
+                </a>
               </div>
             )}
           </div>
